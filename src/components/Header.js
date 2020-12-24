@@ -19,13 +19,10 @@ const useStyles = makeStyles((theme) => ({
 		display: "flex",
 		width: "100vw",
 		zIndex: "100",
-		background:
-			"linear-gradient(90deg, rgba(164,174,223,1) 9%, rgba(255,64,129,1) 100%)",
 	},
 
 	appBar: {
-		background:
-			"linear-gradient(90deg, rgba(164,174,223,1) 9%, rgba(255,64,129,1) 100%)",
+		background: "transparent",
 		boxShadow: "none",
 		color: "#3d3d3d",
 	},

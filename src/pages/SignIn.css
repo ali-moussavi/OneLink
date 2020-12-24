@@ -1,0 +1,27 @@
+.SignIn__container {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	background: rgb(164, 174, 223);
+	background: linear-gradient(
+		90deg,
+		rgba(164, 174, 223, 1) 9%,
+		rgba(255, 112, 160, 1) 100%
+	);
+}
+
+.signInForm {
+	padding: 2rem;
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 0.5rem;
+	box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
+	margin: 0 20px !important;
+}
+
+@media screen and (max-width: 500px) {
+	.signInForm {
+		max-width: 325px !important;
+	}
+}

@@ -3,6 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import { Link as routerLink } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import "./LandingPage.css";
 import mockupImg from "../static/images/mockup_blue.png";
@@ -47,7 +48,10 @@ function LandingPage() {
 						variant="contained"
 						color="secondary"
 						size="large"
-						style={{ margin: "0 .5rem" }}
+						style={{
+							margin: "0 .5rem",
+						}}
+						href="https://www.youtube.com/"
 					>
 						Watch Demo
 					</Button>
@@ -56,6 +60,8 @@ function LandingPage() {
 						color="primary"
 						size="large"
 						style={{ margin: "0 .5rem" }}
+						component={routerLink}
+						to="/signup"
 					>
 						Start Now
 					</Button>

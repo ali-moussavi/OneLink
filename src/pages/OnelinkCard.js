@@ -160,7 +160,11 @@ function OnelinkCard() {
 							color="secondary"
 							className={classes.button}
 							startIcon={<WhatsAppIcon />}
-							style={{ margin: ".3rem", textDecoration: "none" }}
+							style={{
+								margin: ".3rem",
+								textDecoration: "none",
+								color: "white",
+							}}
 							component={Link}
 							href="https://wa.me/989131186434"
 						>
@@ -171,7 +175,11 @@ function OnelinkCard() {
 							color="primary"
 							className={classes.button}
 							startIcon={<TelegramIcon />}
-							style={{ margin: ".3rem", textDecoration: "none" }}
+							style={{
+								margin: ".3rem",
+								textDecoration: "none",
+								color: "white",
+							}}
 							component={Link}
 							href="https://t.me/M_Ali73"
 						>
