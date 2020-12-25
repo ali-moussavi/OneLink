@@ -10,7 +10,7 @@ import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
 import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 let theme = createMuiTheme({
 	typography: {
@@ -41,15 +41,27 @@ function App() {
 			<div className="App">
 				<BrowserRouter>
 					<div>
-						<Header className="App__Header"></Header>
-						<Route path="/" exact component={LandingPage} />
-						<Route path="/signin" exact component={SignIn} />
-						<Route path="/signup" exact component={SignUp} />
-						<Route path="/dashboard" exact component={Dashboard} />
-						<Route path="/cards/new" exact component={NewCard} />
-						<Route path="/cards/edit/:cardid" exact component={EditCard} />
-						<Route path="/card" exact component={OnelinkCard} />
-						<Route path="/delete/:cardid" exact component={DeleteCard} />
+						<Switch>
+							<Route path="/:cardUrlId" exact component={OnelinkCard} />
+							<>
+								<Header className="App__Header"></Header>
+								<Route path="/" exact component={LandingPage} />
+								<Route path="/signin" exact component={SignIn} />
+								<Route path="/signup" exact component={SignUp} />
+								<Route path="/dashboard" exact component={Dashboard} />
+								<Route path="/cards/new" exact component={NewCard} />
+								<Route
+									path="/cards/edit/:cardid"
+									exact
+									component={EditCard}
+								/>
+								<Route
+									path="/delete/:cardid"
+									exact
+									component={DeleteCard}
+								/>
+							</>
+						</Switch>
 					</div>
 				</BrowserRouter>
 			</div>

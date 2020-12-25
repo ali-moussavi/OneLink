@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
 	root: {
 		flexGrow: 1,
 		background:
-			"linear-gradient(90deg, rgba(164,174,223,1) 9%, rgba(255,64,129,1) 100%)",
+			"linear-gradient(90deg, rgba(164, 174, 223, 1) 9%, rgba(255, 112, 160, 1) 100%)",
 	},
 }));
 

@@ -25,3 +25,14 @@
 		max-width: 325px !important;
 	}
 }
+
+@media screen and (max-width: 370px) {
+	.SignIn__container {
+		height: 110vh;
+	}
+	.signInForm {
+		max-width: 325px !important;
+		margin-top: 60px !important;
+		margin-bottom: 60px !important;
+	}
+}
