@@ -19,18 +19,19 @@ const useStyles = makeStyles((theme) => ({
 		display: "flex",
 		width: "100vw",
 		zIndex: "100",
-		background:
-			"linear-gradient(90deg, rgba(164, 174, 223, 1) 9%, rgba(255, 112, 160, 1) 100%)",
-	},
 
-	rootBackgroundHome: {
-		background:
-			"linear-gradient(90deg, rgba(164, 174, 223, 1) 9%, rgba(255, 112, 160, 1) 100%)",
+		[theme.breakpoints.down("sm")]: {
+			background:
+				"linear-gradient(90deg, rgba(164, 174, 223, 1) 9%, rgba(255, 112, 160, 1) 100%)",
+		},
 	},
 
 	appBar: {
-		background:
-			"linear-gradient(90deg, rgba(164, 174, 223, 1) 9%, rgba(255, 112, 160, 1) 100%)",
+		background: "transparent",
+		[theme.breakpoints.down("sm")]: {
+			background:
+				"linear-gradient(90deg, rgba(164, 174, 223, 1) 9%, rgba(255, 112, 160, 1) 100%)",
+		},
 		boxShadow: "none",
 		color: "#3d3d3d",
 	},

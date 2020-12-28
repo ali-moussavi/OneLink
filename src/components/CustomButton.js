@@ -14,7 +14,7 @@ import IconButton from "@material-ui/core/IconButton";
 // 	},
 // });
 
-function CustomButton({ color, children }) {
+function CustomButton({ color, href, children }) {
 	const ColorButton = withStyles((theme) => ({
 		root: {
 			color: color,
@@ -22,12 +22,7 @@ function CustomButton({ color, children }) {
 	}))(IconButton);
 
 	return (
-		<ColorButton
-			aria-label="Youtube"
-			color="primary"
-			component={Link}
-			href="youtubelink"
-		>
+		<ColorButton aria-label="Youtube" color="primary" component={Link} href={href}>
 			{children}
 		</ColorButton>
 	);

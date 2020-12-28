@@ -1,4 +1,5 @@
 import "./App.css";
+import { Fragment } from "react";
 import Header from "./Header";
 import Dashboard from "../pages/Dashboard";
 import DeleteCard from "../pages/DeleteCard";
@@ -42,8 +43,12 @@ function App() {
 				<BrowserRouter>
 					<div>
 						<Switch>
-							<Route path="/:cardUrlId" exact component={OnelinkCard} />
-							<>
+							<Route
+								path="/card/:cardUrlId"
+								exact
+								component={OnelinkCard}
+							/>
+							<Fragment>
 								<Header className="App__Header"></Header>
 								<Route path="/" exact component={LandingPage} />
 								<Route path="/signin" exact component={SignIn} />
@@ -60,7 +65,7 @@ function App() {
 									exact
 									component={DeleteCard}
 								/>
-							</>
+							</Fragment>
 						</Switch>
 					</div>
 				</BrowserRouter>
