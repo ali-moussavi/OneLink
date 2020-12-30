@@ -1,5 +1,5 @@
 .SignUp__container {
-	height: 100vh;
+	min-height: 100vh;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -10,4 +10,11 @@
 		rgba(164, 174, 223, 1) 9%,
 		rgba(255, 112, 160, 1) 100%
 	);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	transition: background-color 5000s ease-in-out 0s;
 }

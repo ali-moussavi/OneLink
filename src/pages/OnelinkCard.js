@@ -23,6 +23,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link";
 import CustomButton from "../components/CustomButton";
+import { Alert, AlertTitle } from "@material-ui/lab";
 
 const useStyles = makeStyles({
 	root: {
@@ -96,7 +97,7 @@ const socialMediaIcons = createMuiTheme({
 function OnelinkCard({ match }) {
 	const classes = useStyles();
 	const cardInfo = useSelector((state) => state.cardInfo.card);
-	const loading = useSelector((state) => state.cardInfo.loading);
+	// const loading = useSelector((state) => state.cardInfo.loading);
 	const error = useSelector((state) => state.cardInfo.error);
 	const dispatch = useDispatch();
 
@@ -408,7 +409,10 @@ function OnelinkCard({ match }) {
 				alignItems="center"
 				style={{ backgroundColor: "#f7f7f7", height: "100vh" }}
 			>
-				{error}
+				<Alert severity="error">
+					<AlertTitle>Error</AlertTitle>
+					{error}
+				</Alert>
 			</Grid>
 		);
 	} else {

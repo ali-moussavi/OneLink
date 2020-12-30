@@ -1,10 +1,12 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { logoutUser } from "../actions/userActions";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import Box from "@material-ui/core/Box";
 
 import LogoPic from "../static/images/Logo.png";
@@ -20,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 		width: "100vw",
 		zIndex: "100",
 
-		[theme.breakpoints.down("sm")]: {
+		[theme.breakpoints.down("xl")]: {
 			background:
 				"linear-gradient(90deg, rgba(164, 174, 223, 1) 9%, rgba(255, 112, 160, 1) 100%)",
 		},
@@ -28,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
 
 	appBar: {
 		background: "transparent",
-		[theme.breakpoints.down("sm")]: {
+		[theme.breakpoints.down("xl")]: {
 			background:
 				"linear-gradient(90deg, rgba(164, 174, 223, 1) 9%, rgba(255, 112, 160, 1) 100%)",
 		},
@@ -48,6 +50,16 @@ function Header() {
 	const classes = useStyles();
 	const location = useLocation();
 
+	const dispatch = useDispatch();
+	const userLogin = useSelector((state) => state.userLogin);
+	const { userInfo } = userLogin;
+
+	const history = useHistory();
+	const logOutHandler = () => {
+		dispatch(logoutUser());
+		history.push("/signin");
+	};
+
 	if (location.pathname !== "/:cardUrlId") {
 		return (
 			<div className={classes.root}>
@@ -65,25 +77,49 @@ function Header() {
 								/>
 							</Link>
 						</Box>
-
-						<Button
-							color="inherit"
-							className={classes.button}
-							style={{ marginRight: "1rem" }}
-							component={Link}
-							to={"/signin"}
-						>
-							Login
-						</Button>
-						<Button
-							variant="contained"
-							color="primary"
-							className={classes.button}
-							component={Link}
-							to={"/signup"}
-						>
-							Sign Up
-						</Button>
+						{userInfo && (
+							<>
+								<Button
+									color="inherit"
+									className={classes.button}
+									style={{ marginRight: "1rem" }}
+									component={Link}
+									to={"/dashboard"}
+								>
+									Dashboard
+								</Button>
+								<Button
+									variant="contained"
+									color="primary"
+									className={classes.button}
+									onClick={logOutHandler}
+								>
+									Log Out
+								</Button>
+							</>
+						)}
+						{!userInfo && (
+							<>
+								<Button
+									color="inherit"
+									className={classes.button}
+									style={{ marginRight: "1rem" }}
+									component={Link}
+									to={"/signin"}
+								>
+									Login
+								</Button>
+								<Button
+									variant="contained"
+									color="primary"
+									className={classes.button}
+									component={Link}
+									to={"/signup"}
+								>
+									Sign Up
+								</Button>
+							</>
+						)}
 					</Toolbar>
 				</AppBar>
 			</div>
