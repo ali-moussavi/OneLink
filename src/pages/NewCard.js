@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import moduleName from "module";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
@@ -20,11 +19,6 @@ import LinkIcon from "@material-ui/icons/Link";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import { addToUserCards } from "../actions/userActions";
 import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import Slide from "@material-ui/core/Slide";
 import axios from "axios";
 import { Avatar } from "@material-ui/core";
 
@@ -265,7 +259,7 @@ function NewCard() {
 				{error && (
 					<Alert severity="error">
 						<AlertTitle>Error</AlertTitle>
-						error
+						{error}
 					</Alert>
 				)}
 			</Dialog>

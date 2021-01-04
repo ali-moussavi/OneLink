@@ -7,7 +7,6 @@ import Avatar from "@material-ui/core/Avatar";
 import { Link as routerLink } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import DeleteIcon from "@material-ui/icons/Delete";
-import defaultAvatar from "../static/images/avatar.png";
 import "./DashboardCard.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -44,8 +43,18 @@ function DashboardCard({ name, title, views, picture, urlId, id, handleDeleteCar
 				<Grid item xs={12} style={{ padding: "0 1rem .5rem 1rem" }}>
 					<div className={classes.firstCard}>
 						<Avatar
-							src={picture ? picture : defaultAvatar}
+							src={picture}
 							className={classes.large}
+							style={{
+								boxShadow: "0 0 25px rgb(0 0 0 / 22%)",
+								color: "#3f51b5",
+								background:
+									"linear-gradient(90deg, rgba(164, 174, 223, 0.9) 9%, rgba(255, 112, 160, 0.6) 100%)",
+								marginRight: "1.5rem",
+								width: 100,
+								height: 100,
+								marginBottom: ".5rem",
+							}}
 						/>
 						<div className={classes.nameTitle}>
 							<Typography

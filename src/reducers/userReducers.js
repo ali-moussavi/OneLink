@@ -64,6 +64,17 @@ export const userCardsReducer = (state = { cards: [] }, action) => {
 			return { loading: false, cards: newCards };
 		case "USER_DELETECARD_FAIL":
 			return { ...state, loading: false, DELETEerror: action.payload };
+		case "USER_EDITCARD_REQUEST":
+			return { ...state, loading: true };
+
+		case "USER_EDITCARD_SUCCESS":
+			const newEditedCards = state.cards.filter((card) => {
+				return card._id !== action.payload._id;
+			});
+			newEditedCards.push(action.payload);
+			return { loading: false, cards: newEditedCards };
+		case "USER_EDITCARD_FAIL":
+			return { ...state, loading: false, EDITerror: action.payload };
 		case "USER_LOGOUT":
 			return {};
 		default:

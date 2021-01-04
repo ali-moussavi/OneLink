@@ -2,7 +2,6 @@ import "./App.css";
 import { Fragment } from "react";
 import Header from "./Header";
 import Dashboard from "../pages/Dashboard";
-import DeleteCard from "../pages/DeleteCard";
 import EditCard from "../pages/EditCard";
 import LandingPage from "../pages/LandingPage";
 import NewCard from "../pages/NewCard";
@@ -59,11 +58,6 @@ function App() {
 									path="/cards/edit/:cardid"
 									exact
 									component={EditCard}
-								/>
-								<Route
-									path="/delete/:cardid"
-									exact
-									component={DeleteCard}
 								/>
 							</Fragment>
 						</Switch>

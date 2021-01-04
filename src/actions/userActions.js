@@ -180,7 +180,7 @@ export const deleteFromUserCards = (cardid) => async (dispatch, getState) => {
 			},
 		};
 
-		const response = await axios.delete(`/api/cards/delete/${cardid}`, config);
+		await axios.delete(`/api/cards/delete/${cardid}`, config);
 		dispatch({
 			type: "USER_DELETECARD_SUCCESS",
 			payload: cardid,
@@ -188,6 +188,35 @@ export const deleteFromUserCards = (cardid) => async (dispatch, getState) => {
 	} catch (error) {
 		dispatch({
 			type: "USER_DELETECARD_FAIL",
+			payload:
+				error.response && error.response.data.message
+					? error.response.data.message
+					: error.response,
+		});
+	}
+};
+
+export const editFromUserCards = (cardNewData, _id) => async (dispatch, getState) => {
+	try {
+		dispatch({ type: "USER_EDITCARD_REQUEST" });
+
+		const { userLogin } = getState();
+
+		const config = {
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${userLogin.userInfo.token}`,
+			},
+		};
+
+		const response = await axios.put(`/api/cards/edit/${_id}`, cardNewData, config);
+		dispatch({
+			type: "USER_EDITCARD_SUCCESS",
+			payload: response.data,
+		});
+	} catch (error) {
+		dispatch({
+			type: "USER_EDITCARD_FAIL",
 			payload:
 				error.response && error.response.data.message
 					? error.response.data.message

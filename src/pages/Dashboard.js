@@ -47,7 +47,6 @@ function Dashboard() {
 	const { userInfo } = userLogin;
 	const userDetail = useSelector((state) => state.userDetail);
 	const { user } = userDetail;
-	const userDetailLoading = userDetail.loading;
 	const userDetailError = userDetail.error;
 	const userCards = useSelector((state) => state.userCards);
 	const cards = useSelector((state) => state.userCards.cards);
