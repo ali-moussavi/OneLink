@@ -13,6 +13,10 @@ import LogoPic from "../static/images/Logo.png";
 import "./Header.css";
 
 const useStyles = makeStyles((theme) => ({
+	shadowRoot: {
+		boxShadow:
+			"rgba(0, 0, 0, 0.0) 0px 3px 3px -2px, rgba(0, 0, 0, 0.07) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 1px 8px 0px",
+	},
 	root: {
 		flexGrow: 1,
 		paddingTop: "7px",
@@ -62,7 +66,13 @@ function Header() {
 
 	if (location.pathname !== "/:cardUrlId") {
 		return (
-			<div className={classes.root}>
+			<div
+				className={`${classes.root} ${
+					(location.pathname === "/dashboard" ||
+						location.pathname === "/cards/new") &&
+					classes.shadowRoot
+				}`}
+			>
 				<AppBar position="static" className={classes.appBar}>
 					<Toolbar>
 						{/* <Typography variant="h6" className={classes.title}>

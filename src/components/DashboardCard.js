@@ -7,6 +7,7 @@ import Avatar from "@material-ui/core/Avatar";
 import { Link as routerLink } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import DeleteIcon from "@material-ui/icons/Delete";
+import defaultAvatar from "../static/images/avatar.png";
 import "./DashboardCard.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -34,17 +35,16 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-function DashboardCard() {
+function DashboardCard({ name, title, views, picture, urlId, id, handleDeleteCard }) {
 	const classes = useStyles();
 
 	return (
 		<Box boxShadow={3} margin={2} className="DashboardCard">
 			<Grid container direction="column">
-				<Grid item xs={12} style={{ padding: "0 1rem 1rem 1rem" }}>
+				<Grid item xs={12} style={{ padding: "0 1rem .5rem 1rem" }}>
 					<div className={classes.firstCard}>
 						<Avatar
-							alt="Remy Sharp"
-							src={"https://randomuser.me/api/portraits/men/18.jpg"}
+							src={picture ? picture : defaultAvatar}
 							className={classes.large}
 						/>
 						<div className={classes.nameTitle}>
@@ -52,7 +52,7 @@ function DashboardCard() {
 								variant="h5"
 								style={{ fontWeight: "500", marginBottom: ".3rem" }}
 							>
-								{"John Smith"}
+								{name}
 							</Typography>
 							<Typography
 								variant="h6"
@@ -62,7 +62,7 @@ function DashboardCard() {
 									lineHeight: "1.1",
 								}}
 							>
-								{"Web Developer"}
+								{title}
 							</Typography>
 						</div>
 					</div>
@@ -80,7 +80,7 @@ function DashboardCard() {
 						variant="h5"
 						style={{ fontWeight: "500", marginBottom: ".8rem" }}
 					>
-						{"Views: 24"}
+						{`Views: ${views}`}
 					</Typography>
 				</Grid>
 				<Grid
@@ -96,7 +96,7 @@ function DashboardCard() {
 						variant="contained"
 						color="primary"
 						component={routerLink}
-						to={"/cards/new"}
+						to={`/card/${urlId}`}
 						size="small"
 						className={classes.button}
 					>
@@ -106,7 +106,7 @@ function DashboardCard() {
 						variant="contained"
 						color="secondary"
 						component={routerLink}
-						to={"/cards/new"}
+						to={`/cards/edit/${id}`}
 						size="small"
 						className={classes.button}
 					>
@@ -115,8 +115,9 @@ function DashboardCard() {
 					<Button
 						variant="contained"
 						color="default"
-						component={routerLink}
-						to={"/cards/new"}
+						onClick={() => {
+							handleDeleteCard(id);
+						}}
 						size="small"
 						className={classes.button}
 						endIcon={<DeleteIcon />}

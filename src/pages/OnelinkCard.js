@@ -120,14 +120,19 @@ function OnelinkCard({ match }) {
 			cardInfo.youtibe ||
 			cardInfo.linkedIn;
 
-		const linksSection = cardInfo.relatedLinks && true;
+		const linksSection = cardInfo.links.length > 0;
+		const locationSection = cardInfo.locationAddress || cardInfo.locationLink;
 		return (
 			<Grid
 				container
 				direction="column"
 				justify="center"
 				alignItems="center"
-				style={{ backgroundColor: "#f7f7f7", height: "100%", paddingTop: "1rem" }}
+				style={{
+					backgroundColor: "#f7f7f7",
+					minHeight: "100vh",
+					paddingTop: "1rem",
+				}}
 			>
 				<Box className={classes.root} boxShadow={3} padding={1} margin={2}>
 					<div className={classes.firstCard}>
@@ -315,7 +320,7 @@ function OnelinkCard({ match }) {
 						>
 							Links
 						</Typography>
-						{cardInfo.relatedLinks.map((link, i) => {
+						{cardInfo.links.map((link, i) => {
 							return (
 								<Grid
 									key={i}
@@ -340,7 +345,7 @@ function OnelinkCard({ match }) {
 						})}
 					</Box>
 				)}
-				{linksSection && (
+				{locationSection && (
 					<Box
 						className={classes.root}
 						boxShadow={3}
@@ -360,34 +365,39 @@ function OnelinkCard({ match }) {
 						>
 							Location
 						</Typography>
-						<Typography
-							variant="body1"
-							style={{
-								marginBottom: ".7rem",
-								padding: "0 .5rem",
-								marginRight: "auto",
-							}}
-						>
-							{cardInfo.locationAddress}
-						</Typography>
-						<Grid
-							item
-							container
-							direction="row"
-							justify="center"
-							alignItems="center"
-							xs={12}
-							style={{ marginBottom: ".9rem", marginTop: ".5rem" }}
-						>
-							<Button
-								variant="contained"
-								color="default"
-								href={cardInfo.locationLink}
-								startIcon={<NavigationIcon />}
+						{cardInfo.locationAddress && (
+							<Typography
+								variant="body1"
+								style={{
+									marginBottom: ".7rem",
+									padding: "0 .5rem",
+									marginRight: "auto",
+								}}
 							>
-								{"Navigate To Address"}
-							</Button>
-						</Grid>
+								{cardInfo.locationAddress}
+							</Typography>
+						)}
+
+						{cardInfo.locationLink && (
+							<Grid
+								item
+								container
+								direction="row"
+								justify="center"
+								alignItems="center"
+								xs={12}
+								style={{ marginBottom: ".9rem", marginTop: ".5rem" }}
+							>
+								<Button
+									variant="contained"
+									color="default"
+									href={cardInfo.locationLink}
+									startIcon={<NavigationIcon />}
+								>
+									{"Navigate To Address"}
+								</Button>
+							</Grid>
+						)}
 					</Box>
 				)}
 				<Box my={1}>
