@@ -66,7 +66,7 @@ function Dashboard() {
 
 	useEffect(() => {
 		if (user) {
-			if (!cards || cards.length === 0) {
+			if (!cards) {
 				dispatch(getUserCards(user.cards));
 			}
 		}
@@ -220,6 +220,13 @@ function Dashboard() {
 					>
 						<AlertTitle>Error</AlertTitle>
 						{userDetailError || userCardsError}
+					</Alert>
+				)}
+				{!userCardsLoading && (!cards || cards.length === 0) && (
+					<Alert severity="info">
+						You don't have any cards yet.
+						<br />
+						Please add cards by pressing the button below!
 					</Alert>
 				)}
 			</Grid>

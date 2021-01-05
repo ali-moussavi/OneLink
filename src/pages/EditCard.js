@@ -238,6 +238,7 @@ function EditCard({ match }) {
 			const formData = {
 				owner: cardToEdit.owner,
 				urlId,
+				picture: image,
 				name,
 				title,
 				whatsApp,

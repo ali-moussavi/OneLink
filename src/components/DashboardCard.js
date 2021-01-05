@@ -22,10 +22,7 @@ const useStyles = makeStyles((theme) => ({
 		width: "100%",
 		paddingTop: ".5rem",
 	},
-	nameTitle: {
-		paddingLeft: "1rem",
-		// alignSelf: "flex-end",
-	},
+
 	large: {
 		marginLeft: ".5rem",
 		width: 100,
@@ -56,7 +53,7 @@ function DashboardCard({ name, title, views, picture, urlId, id, handleDeleteCar
 								marginBottom: ".5rem",
 							}}
 						/>
-						<div className={classes.nameTitle}>
+						<div>
 							<Typography
 								variant="h5"
 								style={{ fontWeight: "500", marginBottom: ".3rem" }}

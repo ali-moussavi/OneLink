@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -164,6 +164,7 @@ function NewCard() {
 			const formData = {
 				urlId,
 				name,
+				picture: image,
 				title,
 				whatsApp,
 				telegramId,
@@ -252,7 +253,12 @@ function NewCard() {
 					<Alert severity="success">
 						<AlertTitle>Success</AlertTitle>
 						Card save successfuly —{" "}
-						<strong>check it out in your dashboard!</strong>
+						<strong>
+							check it out in your{" "}
+							<Link style={{ color: "inherit" }} to="/dashboard">
+								dashboard!
+							</Link>
+						</strong>
 					</Alert>
 				)}
 

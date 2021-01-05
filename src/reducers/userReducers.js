@@ -36,7 +36,7 @@ export const userDetailReducer = (state = { user: null }, action) => {
 	}
 };
 
-export const userCardsReducer = (state = { cards: [] }, action) => {
+export const userCardsReducer = (state = { cards: null }, action) => {
 	switch (action.type) {
 		case "USER_CARDS_REQUEST":
 			return { ...state, loading: true };
