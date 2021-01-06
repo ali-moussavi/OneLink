@@ -136,11 +136,7 @@ function OnelinkCard({ match }) {
 			>
 				<Box className={classes.root} boxShadow={3} padding={1} margin={2}>
 					<div className={classes.firstCard}>
-						<Avatar
-							alt="Remy Sharp"
-							src={cardInfo.picture}
-							className={classes.large}
-						/>
+						<Avatar src={cardInfo.picture} className={classes.large} />
 						<div className={classes.nameTitle}>
 							<Typography
 								variant="h5"
