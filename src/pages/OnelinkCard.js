@@ -284,12 +284,18 @@ function OnelinkCard({ match }) {
 							style={{ marginBottom: ".5rem" }}
 						>
 							{cardInfo.instagram && (
-								<CustomButton color="#E1306C" href={cardInfo.instagram}>
+								<CustomButton
+									color="#E1306C"
+									href={`https://www.instagram.com/${cardInfo.instagram}`}
+								>
 									<InstagramIcon fontSize="large" />
 								</CustomButton>
 							)}
 							{cardInfo.twitter && (
-								<CustomButton color="#00acee" href={cardInfo.twitter}>
+								<CustomButton
+									color="#00acee"
+									href={`https://twitter.com/${cardInfo.twitter}`}
+								>
 									<TwitterIcon fontSize="large" />
 								</CustomButton>
 							)}
