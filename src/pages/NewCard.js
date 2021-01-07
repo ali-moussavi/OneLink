@@ -404,7 +404,7 @@ function NewCard() {
 									  }`
 							}
 							onChange={(e) => {
-								setUrlId(e.target.value);
+								setUrlId(e.target.value.toLocaleLowerCase());
 							}}
 							variant="outlined"
 							required

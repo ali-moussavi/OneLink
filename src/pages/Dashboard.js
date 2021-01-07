@@ -47,6 +47,7 @@ function Dashboard() {
 	const { userInfo } = userLogin;
 	const userDetail = useSelector((state) => state.userDetail);
 	const { user } = userDetail;
+	const detailLoading = userDetail.loading;
 	const userDetailError = userDetail.error;
 	const userCards = useSelector((state) => state.userCards);
 	const cards = useSelector((state) => state.userCards.cards);
@@ -211,7 +212,12 @@ function Dashboard() {
 				alignItems="center"
 				style={{ padding: "1.2rem 0 2rem 0", minHeight: "50vh" }}
 			>
-				{cards && !userCardsLoading ? renderCards(cards) : <CircularProgress />}
+				{cards &&
+					cards.length !== 0 &&
+					!detailLoading &&
+					!userCardsLoading &&
+					renderCards(cards)}
+				{(detailLoading || userCardsLoading) && <CircularProgress />}
 				{(userDetailError || userCardsError) && (
 					<Alert
 						severity="error"
@@ -222,7 +228,7 @@ function Dashboard() {
 						{userDetailError || userCardsError}
 					</Alert>
 				)}
-				{!userCardsLoading && (!cards || cards.length === 0) && (
+				{!detailLoading && !userCardsLoading && (!cards || cards.length === 0) && (
 					<Alert severity="info">
 						You don't have any cards yet.
 						<br />
