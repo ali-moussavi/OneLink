@@ -405,7 +405,7 @@ function OnelinkCard({ match }) {
 				<Box my={1}>
 					<Typography variant="body2" color="textSecondary" align="center">
 						{"Created by "}
-						<Link color="primary" href="https://material-ui.com/">
+						<Link color="primary" href="https://one--link.herokuapp.com/">
 							OneLink
 						</Link>{" "}
 					</Typography>
