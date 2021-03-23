@@ -1,5 +1,5 @@
 import "./App.css";
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import Header from "./Header";
 import Dashboard from "../pages/Dashboard";
 import EditCard from "../pages/EditCard";
@@ -11,6 +11,9 @@ import SignUp from "../pages/SignUp";
 import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+
+import ReactGA from "react-ga"; //Google Analytics
+import { createBrowserHistory } from "history";
 
 let theme = createMuiTheme({
 	typography: {
@@ -36,10 +39,19 @@ let theme = createMuiTheme({
 theme = responsiveFontSizes(theme);
 
 function App() {
+	const history = createBrowserHistory();
+
+	// Initialize google analytics page view tracking
+	history.listen((location) => {
+		ReactGA.initialize("UA-187203967-1");
+		ReactGA.set({ page: location.pathname }); // Update the user's current page
+		ReactGA.pageview(location.pathname); // Record a pageview for the given page
+	});
+
 	return (
 		<ThemeProvider theme={theme}>
 			<div className="App">
-				<BrowserRouter>
+				<BrowserRouter history={history}>
 					<div>
 						<Switch>
 							<Route

@@ -51,7 +51,7 @@ function LandingPage() {
 						style={{
 							margin: "0 .5rem",
 						}}
-						href="https://www.youtube.com/"
+						href="https://www.linkedin.com/feed/update/urn:li:activity:6761314380282920961/"
 					>
 						Watch Demo
 					</Button>
